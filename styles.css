@@ -207,24 +207,39 @@ nav ul li a:hover::after {
 .floating-elements {
     position: relative;
     width: 100%;
-    height: 100%;
+    height: 400px;
 }
 
 .floating-icon {
     position: absolute;
-    font-size: 3rem;
-    color: var(--matrix-accent);
-    animation: float 6s ease-in-out infinite;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     width: 60px;
     height: 60px;
     background: rgba(0, 255, 157, 0.1);
     border-radius: 12px;
-    backdrop-filter: blur(5px);
     border: 1px solid rgba(0, 255, 157, 0.2);
+    box-shadow: 0 0 20px rgba(0,255,157,0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #00FF9D;
+    font-size: 2rem;
+    animation: float 6s ease-in-out infinite;
     transition: all 0.3s ease;
+}
+
+.floating-icon svg {
+    width: 32px;
+    height: 32px;
+    display: block;
+}
+
+.floating-icon svg path,
+.floating-icon svg rect {
+    fill: #00FF9D !important;
+}
+
+.floating-icon svg rect[fill="#0A0A0A"] {
+    fill: #0A0A0A !important;
 }
 
 .floating-icon:hover {
@@ -233,91 +248,18 @@ nav ul li a:hover::after {
     box-shadow: 0 0 20px rgba(0, 255, 157, 0.3);
 }
 
-.floating-icon.framer {
-    width: 50px;
-    height: 50px;
-}
-
-.floating-icon.framer svg {
-    width: 100%;
-    height: 100%;
-}
-
-.floating-icon:nth-child(1) {
-    top: 15%;
-    left: 15%;
-    animation-delay: 0s;
-}
-
-.floating-icon:nth-child(2) {
-    top: 55%;
-    left: 25%;
-    animation-delay: 1s;
-}
-
-.floating-icon:nth-child(3) {
-    top: 25%;
-    left: 75%;
-    animation-delay: 2s;
-}
-
-.floating-icon:nth-child(4) {
-    top: 65%;
-    left: 65%;
-    animation-delay: 3s;
-}
-
-.floating-icon:nth-child(5) {
-    top: 35%;
-    left: 45%;
-    animation-delay: 1.5s;
-}
-
-.floating-icon:nth-child(6) {
-    top: 75%;
-    left: 35%;
-    animation-delay: 2.5s;
-}
-
-.floating-icon:nth-child(7) {
-    top: 45%;
-    left: 85%;
-    animation-delay: 3.5s;
-}
-
-.floating-icon:nth-child(8) {
-    top: 85%;
-    left: 55%;
-    animation-delay: 4s;
-}
+.floating-icon:nth-child(1) { top: 10%; left: 20%; animation-delay: 0s; }
+.floating-icon:nth-child(2) { top: 50%; left: 25%; animation-delay: 0.5s; }
+.floating-icon:nth-child(3) { top: 20%; left: 60%; animation-delay: 1s; }
+.floating-icon:nth-child(4) { top: 60%; left: 65%; animation-delay: 1.5s; }
+.floating-icon:nth-child(5) { top: 30%; left: 40%; animation-delay: 2s; }
+.floating-icon:nth-child(6) { top: 70%; left: 40%; animation-delay: 2.5s; }
+.floating-icon:nth-child(7) { top: 40%; left: 80%; animation-delay: 3s; }
+.floating-icon:nth-child(8) { top: 80%; left: 60%; animation-delay: 3.5s; }
 
 @keyframes float {
-    0%, 100% {
-        transform: translateY(0) rotate(0deg);
-    }
-    25% {
-        transform: translateY(-15px) rotate(5deg);
-    }
-    50% {
-        transform: translateY(0) rotate(0deg);
-    }
-    75% {
-        transform: translateY(15px) rotate(-5deg);
-    }
-}
-
-/* Add a subtle pulse animation for the icons */
-@keyframes pulse {
-    0%, 100% {
-        box-shadow: 0 0 0 0 rgba(0, 255, 157, 0.2);
-    }
-    50% {
-        box-shadow: 0 0 0 10px rgba(0, 255, 157, 0);
-    }
-}
-
-.floating-icon {
-    animation: float 6s ease-in-out infinite, pulse 3s ease-in-out infinite;
+    0%, 100% { transform: translateY(0) rotate(0deg);}
+    50% { transform: translateY(-15px) rotate(5deg);}
 }
 
 /* Section Headers */
@@ -530,16 +472,9 @@ footer {
         grid-template-columns: 1fr;
     }
 
-    .floating-icon {
-        font-size: 2.5rem;
-        width: 50px;
-        height: 50px;
-    }
-
-    .floating-icon.framer {
-        width: 40px;
-        height: 40px;
-    }
+    .floating-elements { height: 250px; }
+    .floating-icon { width: 40px; height: 40px; font-size: 1.2rem; }
+    .floating-icon svg { width: 24px; height: 24px; }
 }
 
 @media (max-width: 768px) {
@@ -579,16 +514,9 @@ footer {
         grid-template-columns: 1fr;
     }
 
-    .floating-icon {
-        font-size: 2rem;
-        width: 40px;
-        height: 40px;
-    }
-
-    .floating-icon.framer {
-        width: 35px;
-        height: 35px;
-    }
+    .floating-elements { height: 250px; }
+    .floating-icon { width: 40px; height: 40px; font-size: 1.2rem; }
+    .floating-icon svg { width: 24px; height: 24px; }
 }
 
 @media (max-width: 480px) {
@@ -886,4 +814,7 @@ footer {
 .skill-item:nth-child(1) { animation-delay: 0.1s; }
 .skill-item:nth-child(2) { animation-delay: 0.2s; }
 .skill-item:nth-child(3) { animation-delay: 0.3s; }
-.skill-item:nth-child(4) { animation-delay: 0.4s; } 
+.skill-item:nth-child(4) { animation-delay: 0.4s; }
+
+/* Remove carousel styles */
+.icon-carousel, .icon-track, .carousel-icon { display: none !important; } 
